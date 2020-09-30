@@ -1,8 +1,20 @@
 test_anagram (__main__.TestExercice) ... FAIL
 test_doubles (__main__.TestExercice) ... FAIL
 test_grades (__main__.TestExercice) ... FAIL
-test_histogram (__main__.TestExercice) ... FAIL
+test_histogram (__main__.TestExercice) ... ERROR
 test_order (__main__.TestExercice) ... FAIL
+
+======================================================================
+ERROR: test_histogram (__main__.TestExercice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "test_exercice.py", line 78, in test_histogram
+    output = [exercice.histogram(s) for s in sentences]
+  File "test_exercice.py", line 78, in <listcomp>
+    output = [exercice.histogram(s) for s in sentences]
+  File "/home/runner/work/c01_ch6_exercices-marianachng/c01_ch6_exercices-marianachng/exercice.py", line 47, in histogram
+    sentence = input("Donnez une phrase: ")
+EOFError: EOF when reading a line
 
 ======================================================================
 FAIL: test_anagram (__main__.TestExercice)
@@ -25,13 +37,13 @@ FAIL: test_doubles (__main__.TestExercice)
 Traceback (most recent call last):
   File "test_exercice.py", line 55, in test_doubles
     'Erreur dans les doublons'
-AssertionError: Lists differ: [False, False] != [False, True]
+AssertionError: Lists differ: [True, False] != [False, True]
 
-First differing element 1:
-False
+First differing element 0:
 True
+False
 
-- [False, False]
+- [True, False]
 + [False, True] : Erreur dans les doublons
 
 ======================================================================
@@ -40,15 +52,7 @@ FAIL: test_grades (__main__.TestExercice)
 Traceback (most recent call last):
   File "test_exercice.py", line 69, in test_grades
     'Erreur dans les notes'
-AssertionError: [{}] is not an instance of <class 'dict'> : First argument is not a dictionary
-
-======================================================================
-FAIL: test_histogram (__main__.TestExercice)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "test_exercice.py", line 84, in test_histogram
-    'Erreur dans les histogrammes'
-AssertionError: [({}, []), ({}, [])] is not an instance of <class 'dict'> : First argument is not a dictionary
+AssertionError: [('Sam', [100.0, 0.0])] is not an instance of <class 'dict'> : First argument is not a dictionary
 
 ======================================================================
 FAIL: test_order (__main__.TestExercice)
@@ -68,4 +72,4 @@ False
 ----------------------------------------------------------------------
 Ran 5 tests in 0.001s
 
-FAILED (failures=5)
+FAILED (failures=4, errors=1)
