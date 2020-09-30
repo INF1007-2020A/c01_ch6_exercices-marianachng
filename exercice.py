@@ -71,13 +71,19 @@ def histogram(sentence: str) -> tuple:
     #       Afficher l'histogramme et les lettres les plus fréquentes
     #       Retourner l'histogramme et le tableau de lettres
 
+    hist = {}
+    for char in sentence:
+        if char in hist:
+            hist[char] += 1
+        else:
+            hist[char] = 1
+    frequency_threshold = 5
+    most_frequent_chars = [key for key, value in histogram.item() if value > frequency_threshold and key != " "]
+
+    return hist, most_frequent_chars
+
     sentence = input("Donnez une phrase: ")
     histogram(sentence)
-
-
-
-    return {}, []
-
 
 def get_recipes():
     # TODO: Demander le nom d'une recette, puis ses ingrédients et enregistrer dans une structure de données 
