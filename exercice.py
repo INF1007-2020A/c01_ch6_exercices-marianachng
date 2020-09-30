@@ -18,18 +18,36 @@ def anagrams(words: list = None) -> bool:
 
 
 def contains_doubles(items: list) -> bool:
-    return False
-
+    uniques = set(items)
+    return len(items) == len(uniques)
 
 def best_grades(student_grades: dict) -> dict:
     # TODO: Retourner un dictionnaire contenant le nom de l'étudiant ayant la meilleure moyenne ainsi que sa moyenne
-    return {}
+    list_student, list_grades = [], []
+    nom, note = None, None
+
+    for student in student_grades:
+        student_grades[student] = sum(student_grades[student]) / len(student_grades[student])
+        list_student.append(student)
+        list_grades.append(student_grades[student])
+
+    for student in range(len(list_student)):
+        if list_grades[student] > list_grades[student - 1]:
+            nom = list_student[student]
+            note = list_grades
+    
+    return nom, note
 
 
 def histogram(sentence: str) -> tuple:
     # TODO: Créer l'histogramme a l'aide d'un dictionnaire
     #       Afficher l'histogramme et les lettres les plus fréquentes
     #       Retourner l'histogramme et le tableau de lettres
+
+    sentence = input("Donnez une phrase: ")
+    histogram(sentence)
+
+
 
     return {}, []
 
