@@ -78,12 +78,12 @@ def histogram(sentence: str) -> tuple:
         else:
             hist[char] = 1
     frequency_threshold = 5
-    most_frequent_chars = [key for key, value in histogram.item() if value > frequency_threshold and key != " "]
+    most_frequent_chars = [key for key, value in hist.items() if value > frequency_threshold and key != " "]
 
     return hist, most_frequent_chars
 
-    sentence = input("Donnez une phrase: ")
-    histogram(sentence)
+sentence = input("Donnez une phrase: ")
+histogram(sentence)
 
 def get_recipes():
     # TODO: Demander le nom d'une recette, puis ses ingrédients et enregistrer dans une structure de données 
