@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from collection import Counter
+from collections import Counter
 
 def order(values: list = None) -> bool:
     if values is None:
