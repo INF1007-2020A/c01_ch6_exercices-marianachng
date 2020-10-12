@@ -4,10 +4,12 @@
 from collections import Counter
 
 def order(values: list = None) -> bool:
-    if values is None:
+    #if values is None:
         # TODO: Demander les valeurs ici
         values = [input("Entrez...") for _ in range(10)]
-    return values == sorted(values)
+        return values == sorted(values)
+    #ou bien 
+    #return values == values.sort
 
 
 def anagrams(words: list = None) -> bool:
@@ -26,11 +28,11 @@ def anagrams2(words: list = None) -> bool:
         sorted_words.add(sorted(str(word)))
     return len(sorted_words) == 1
 
-def anagrams3(words: list = None) -> bool:
-    if words is None:
-        words = [Counter(input()) for _ in range(2)]
-    print(SECONDS_TO_MILLISECONDS)
-    return words[0] == words[1]
+#def anagrams3(words: list = None) -> bool:
+#    if words is None:
+#        words = [Counter(input()) for _ in range(2)]
+#    print(SECONDS_TO_MILLISECONDS)
+#    return words[0] == words[1]
 
 def anagrams4(words: list = None) ->bool:
     if words is None:
@@ -82,8 +84,8 @@ def histogram(sentence: str) -> tuple:
 
     return hist, most_frequent_chars
 
-sentence = input("Donnez une phrase: ")
-histogram(sentence)
+    sentence = input("Donnez une phrase: ")
+    histogram(sentence)
 
 def get_recipes():
     # TODO: Demander le nom d'une recette, puis ses ingrédients et enregistrer dans une structure de données 
@@ -97,10 +99,10 @@ def print_recipe(ingredients) -> None:
 
 def main() -> None:
     print(f"On essaie d'ordonner les valeurs...")
-    order()
+    print(order())
 
     print(f"On vérifie les anagrammes...")
-    anagrams()
+    print(anagrams())
 
     my_list = [3, 3, 5, 6, 1, 1]
     print(f"Ma liste contient-elle des doublons? {contains_doubles(my_list)}")
@@ -109,11 +111,11 @@ def main() -> None:
     name, result = best_grades(grades)
     print(f"{name} a la meilleure moyenne: {result}")
     
-    print("On enregistre les recettes...")
-    recipes = get_recipes()
+    #print("On enregistre les recettes...")
+    #recipes = get_recipes()
 
-    print("On affiche une recette au choix...")
-    print_recipe(recipes)
+    #print("On affiche une recette au choix...")
+    #print_recipe(recipes)
 
 
 if __name__ == '__main__':
