@@ -18,31 +18,50 @@ def anagrams(words: list = None) -> bool:
         # TODO: Demander les mots ici
         chaine1, chaine2 = input(), input()
         liste1, liste2 = sorted(list(chaine1)), sorted(list(chaine2))
+
     return liste1 == liste2
 
 def anagrams2(words: list = None) -> bool:
     if words is None:
         words = [input() for _ in range(2)]
+
     sorted_words = set()
     for word in words:
         sorted_words.add(sorted(str(word)))
+
     return len(sorted_words) == 1
 
-#def anagrams3(words: list = None) -> bool:
-#    if words is None:
-#        words = [Counter(input()) for _ in range(2)]
-#    print(SECONDS_TO_MILLISECONDS)
-#    return words[0] == words[1]
-
-def anagrams4(words: list = None) ->bool:
+def anagrams3(words: list = None) ->bool:
     if words is None:
         words = [input() for _ in range(2)]
+
     word_dicts = [{}, {}]
+    for i, word in enumerate(words):
+        for letter in word:
+            if letter in word_dicts[i]:
+                word_dicts[i][letter] += 1
+            else:
+                word_dicts[i][letter] = 1
+
+    return word_dicts[0] == word_dicts[1]
+
+def anagrams4(words: list = None) -> bool:
+    if words is None:
+        words = [Counter(input()) for _ in range(2)]
+
+    return words[0] == words[1]
+
+def anagrams5(words: list = None) -> bool:
+    if words is None:
+        words = [input() for _ in range(2)]
+    
+    word_dicts = [{},{}]
 
     return word_dicts[0] == word_dicts[1]
 
 def contains_doubles(items: list) -> bool:
     uniques = set(items)
+    
     return len(items) == len(uniques)
 
 def best_grades(student_grades: dict) -> dict:
@@ -84,8 +103,8 @@ def histogram(sentence: str) -> tuple:
 
     return hist, most_frequent_chars
 
-    sentence = input("Donnez une phrase: ")
-    histogram(sentence)
+    #sentence = input("Donnez une phrase: ")
+    #histogram(sentence)
 
 def get_recipes():
     # TODO: Demander le nom d'une recette, puis ses ingrédients et enregistrer dans une structure de données 
@@ -98,8 +117,8 @@ def print_recipe(ingredients) -> None:
 
 
 def main() -> None:
-    print(f"On essaie d'ordonner les valeurs...")
-    print(order())
+    #print(f"On essaie d'ordonner les valeurs...")
+    #print(order())
 
     print(f"On vérifie les anagrammes...")
     print(anagrams())
