@@ -108,12 +108,22 @@ def histogram(sentence: str) -> tuple:
 
 def get_recipes():
     # TODO: Demander le nom d'une recette, puis ses ingrédients et enregistrer dans une structure de données 
-    pass
+    name = input("veuillez entrer le nom de la recette: ")
+    ingredients = input("veuillez énumérer ses ingrédients:")
+    dict_recipes = {name, ingredients}
+
+    dict_recipes["name"] += name 
+
+    message = "Votre recette a été enregistrée."
+    return message
 
 
 def print_recipe(ingredients) -> None:
     # TODO: Demander le nom d'une recette, puis l'afficher si elle existe
-    pass
+    name_recipe = input()
+    recipe = ""
+
+    return recipe
 
 
 def main() -> None:
